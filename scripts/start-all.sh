@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-#docker-compose up -d kafka zookeeper spark-master spark-worker-1 influx &&
 docker-compose up -d kafka zookeeper spark-master spark-worker-1 influx grafana &&
 
 echo -e '\n\n################# WAIT KAFKA BOOTSTRAP #################' &&

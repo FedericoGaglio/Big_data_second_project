@@ -1,13 +1,12 @@
 import csv
 import json
 import sys
-from datetime import datetime
 from time import sleep, time
 from kafka import KafkaProducer
 import random
 
 TOPIC_FORMATTER = '{}'
-CSV_FILE_NAME_FORMATTER = 'r_{}.csv'
+CSV_FILE_NAME_FORMATTER = 'contact_{}.csv'
 
 
 def create_kafka_producer(hostname, port):
@@ -49,8 +48,7 @@ def main():
                     "timestamp": time()
                 }
                 send_data(producer, topic, json.dumps(x))
-                #sleep(1)
-                sleep(random.uniform(1, 5))
+                sleep(1)
             else:
                 first_line = False
 

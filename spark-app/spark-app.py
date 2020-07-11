@@ -12,35 +12,31 @@ import json
 def read_json_file(x):
     print('LEGGO')
     print(json.dumps(json.loads(x[1]), indent=4))
-    # print(json.loads(x[1])["city"])
     return x
 
-
-# def reduce_json(x,y):
-# return (y[0],y[1],y[2]+x[2], y[3]+x[3], y[4]+x[4], y[5]+x[5], y[6]+x[6])
-
 def map_save_influx(x):
-    # data = x[1]
     data = json.loads(x[1])
+
     json_body = [
         {
             "measurement": "contact",
             "tags": {
-                "city": data["city"],
+                "country": data["country"],
                 "region": data["region"],
+                "city": data["city"],
                 "user_1": data["user_1"],
                 "user_2": data["user_2"]
             },
             "fields": {
                 "user_1": data["user_1"],
                 "user_2": data["user_2"],
-                "timestamp": data["timestamp"],
                 "country": data["country"],
+                "timestamp": data["timestamp"],
                 "region": data["region"],
                 "city": data["city"],
                 "cap": data["cap"],
-                "latitude": data["latitude"],
-                "longitude": data["longitude"]
+                "latitude": str(data["latitude"]),
+                "longitude": str(data["longitude"])
             }
         }
     ]
