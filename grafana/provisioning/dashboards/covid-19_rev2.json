@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1594481373446,
+  "iteration": 1594483281179,
   "links": [],
   "panels": [
     {
@@ -60,7 +60,7 @@
           "values": false
         }
       },
-      "pluginVersion": "7.0.4",
+      "pluginVersion": "7.0.6",
       "targets": [
         {
           "groupBy": [
@@ -146,7 +146,7 @@
           "values": false
         }
       },
-      "pluginVersion": "7.0.4",
+      "pluginVersion": "7.0.6",
       "targets": [
         {
           "groupBy": [
@@ -426,6 +426,7 @@
           "custom": {
             "align": "center"
           },
+          "decimals": 10,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -453,7 +454,7 @@
       "options": {
         "showHeader": true
       },
-      "pluginVersion": "7.0.4",
+      "pluginVersion": "7.0.6",
       "targets": [
         {
           "groupBy": [],
@@ -502,6 +503,14 @@
                 ],
                 "type": "field"
               }
+            ],
+            [
+              {
+                "params": [
+                  "timestamp"
+                ],
+                "type": "field"
+              }
             ]
           ],
           "tags": [
@@ -529,8 +538,8 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "Lombardia",
-          "value": "Lombardia"
+          "text": "Sicilia",
+          "value": "Sicilia"
         },
         "hide": 0,
         "includeAll": false,
@@ -539,12 +548,12 @@
         "name": "Regione",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "Sicilia",
             "value": "Sicilia"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "Lombardia",
             "value": "Lombardia"
           },

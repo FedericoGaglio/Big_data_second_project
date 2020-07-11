@@ -48,7 +48,7 @@ def main():
                     "timestamp": time()
                 }
                 send_data(producer, topic, json.dumps(x))
-                sleep(1)
+                sleep(random.uniform(1,5))
             else:
                 first_line = False
 
