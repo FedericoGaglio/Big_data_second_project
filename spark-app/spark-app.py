@@ -24,7 +24,7 @@ def map_save_influx(x):
     data = json.loads(x[1])
     json_body = [
         {
-            "measurement": "CovidInfo",
+            "measurement": "contact",
             "tags": {
                 "city": data["city"],
                 "region": data["region"],
@@ -54,16 +54,12 @@ if __name__ == "__main__":
     ssc = StreamingContext(sc, 10)
 
     kvs = KafkaUtils.createDirectStream(ssc, ["lombardia", "sicilia", "toscana"], {"metadata.broker.list": "kafka:9092"})
-    # kafkaRDD = KafkaUtils.createRDD(ssc,  kafkaParams, offsetRanges, leaders)
 
     client = InfluxDBClient(host='influx', port=8086)
     client.switch_database('covid')
 
-    # lines = kvs.map(lambda x: read_json_file(x))
-    # lines = kvs.map(lambda x: read_json_file(x)).reduceByKey(lambda x,y: reduce_json(x,y)).map(lambda x: map_save_influx(x))
     lines = kvs.map(lambda x: read_json_file(x)).map(lambda x: map_save_influx(x))
 
-    # print(lines.count())
     lines.pprint()
 
     ssc.start()

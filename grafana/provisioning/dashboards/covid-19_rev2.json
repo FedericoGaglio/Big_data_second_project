@@ -91,7 +91,7 @@
               "type": "time"
             }
           ],
-          "measurement": "CovidInfo",
+          "measurement": "contact",
           "orderByTime": "ASC",
           "policy": "autogen",
           "refId": "A",
