@@ -1,9 +1,8 @@
 FROM python:3
 
-ENV REGION=${REGION}
-
-COPY contact-producer.py entrypoint.sh data/* ./
+COPY positive-producer.py entrypoint.sh ./
 
 RUN pip install kafka-python
+RUN pip install influxdb
 
-CMD ["sh", "-c",  "bash entrypoint.sh $REGION"]
+CMD ["sh", "-c",  "bash entrypoint.sh"]

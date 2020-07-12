@@ -18,15 +18,19 @@ def read_json_file(x):
 def map_save_influx(x):
     data = json.loads(x[1])
 
-    for user in data:
+    for user in data["positive_users"]:
         json_body = [
             {
                 "measurement": "positive",
                 "tags": {
-                    "user_id": user
+                    "user_id": user['id'],
+                    "country": user['country'],
+                    "region": user['region']
                 },
                 "fields": {
-                    "user_id": user
+                    "user_id": user['id'],
+                    "country": user['country'],
+                    "region": user['region']
                 }
             }
         ]

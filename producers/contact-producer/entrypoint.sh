@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-python producer.py $1
+python contact-producer.py $1
