@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo -e '################# BUILD PRODUCER #################\n\n\n' &&
-docker-compose build producer-sicilia producer-lombardia producer-toscana &&
+docker-compose build producer-positive &&
 
 echo -e '\n\n\n################# START PRODUCER #################\n\n\n' &&
-docker-compose up -d producer-sicilia producer-lombardia producer-toscana
+docker-compose up -d producer-positive
