@@ -26,13 +26,14 @@ def main():
     client = InfluxDBClient(host='influx', port=8086)
     client.switch_database('covid')
 
-    for i in range(10):
-        result_set = client.query("SELECT sample(user_1, 3), country, region FROM covid.autogen.contact")
+    while True:
+        num_user = random.randint(1, 5)
+        result_set = client.query("SELECT sample(user_1,"+str(num_user)+"), country, region FROM covid.autogen.contact")
         result_list = list(result_set.get_points(measurement='contact'))
         final = [{'id': x['sample'], 'country': x['country'], 'region': x['region']} for x in result_list]
         x = {"positive_users": final}
         send_data(producer, json.dumps(x))
-        sleep(2)
+        sleep(random.uniform(1, 5))
 
 
 if __name__ == "__main__":

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo -e '\n\n\n################# START SPARK APP #################\n\n\n' &&
+
 PYTHON_FILE='spark-app.py'
 
 docker cp ../spark-app/$PYTHON_FILE spark-master:/$PYTHON_FILE

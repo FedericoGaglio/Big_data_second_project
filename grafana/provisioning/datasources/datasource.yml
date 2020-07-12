@@ -21,6 +21,6 @@ datasources:
   database: covid
   # <bool> enable/disable basic auth
   jsonData:
-    timeInterval: "20s"
+    timeInterval: "10s"
   secureJsonData:
     password: grafana
