@@ -8,5 +8,5 @@ echo -e '\n\n################# INFRASTRUCTURE IS RUNNING #################'
 #xdg-open http://localhost:3000/d/covid/covid-dashboard
 open http://localhost:3000/d/covid/covid-dashboard
 
-#echo -e '\n\n################# CONFIG INFLUX #################' &&
-#bash config-influx.sh &&
+echo -e '\n\n################# CONFIG INFLUX #################' &&
+bash config-influx.sh &&
