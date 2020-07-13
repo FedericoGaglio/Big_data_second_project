@@ -17,7 +17,7 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CREATE_TOPICS: "lombardia:1:1,sicilia:1:1,toscana:1:1,positive:1:1"
+      KAFKA_CREATE_TOPICS: "lombardia:1:1,sicilia:1:1,toscana:1:1,positive:1:1,healed:1:1"
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -72,6 +72,14 @@ services:
     build:
       context: producers/positive-producer
     container_name: producer-positive
+    depends_on:
+      - "kafka"
+      - "influx"
+
+  producer-healed:
+    build:
+      context: producers/healed-producer
+    container_name: producer-healed
     depends_on:
       - "kafka"
       - "influx"

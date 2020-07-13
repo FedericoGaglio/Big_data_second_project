@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1594558747234,
+  "iteration": 1594636670854,
   "links": [],
   "panels": [
     {
@@ -490,6 +490,12 @@
               "key": "region",
               "operator": "=",
               "value": "Lombardia"
+            },
+            {
+              "condition": "AND",
+              "key": "status",
+              "operator": "=",
+              "value": "positive"
             }
           ]
         },
@@ -527,6 +533,12 @@
               "key": "region",
               "operator": "=",
               "value": "Sicilia"
+            },
+            {
+              "condition": "AND",
+              "key": "status",
+              "operator": "=",
+              "value": "positive"
             }
           ]
         },
@@ -564,6 +576,12 @@
               "key": "region",
               "operator": "=",
               "value": "Toscana"
+            },
+            {
+              "condition": "AND",
+              "key": "status",
+              "operator": "=",
+              "value": "positive"
             }
           ]
         }
@@ -574,203 +592,690 @@
       "type": "bargauge"
     },
     {
-      "collapsed": true,
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "InfluxDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "fill": 3,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "hiddenSeries": false,
+      "id": 27,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 3,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "7.0.4",
+      "pointradius": 7,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "$Regione",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "measurement": "positive",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "user_id"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "region",
+              "operator": "=~",
+              "value": "/^$Regione$/"
+            },
+            {
+              "condition": "AND",
+              "key": "status",
+              "operator": "=",
+              "value": "positive"
+            }
+          ]
+        },
+        {
+          "alias": "$Regione",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "measurement": "positive",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "user_id"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "region",
+              "operator": "=~",
+              "value": "/^$Regione$/"
+            },
+            {
+              "condition": "AND",
+              "key": "status",
+              "operator": "=",
+              "value": "healed"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Confronto positivi/guariti",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:934",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:935",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "InfluxDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "fill": 3,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 20
+      },
+      "hiddenSeries": false,
+      "id": 28,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 3,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "7.0.4",
+      "pointradius": 7,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "$Regione",
+          "groupBy": [
+            {
+              "params": [
+                "15m"
+              ],
+              "type": "time"
+            }
+          ],
+          "measurement": "positive",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "status"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "status",
+              "operator": "=",
+              "value": "positive"
+            }
+          ]
+        },
+        {
+          "alias": "$Regione",
+          "groupBy": [
+            {
+              "params": [
+                "15m"
+              ],
+              "type": "time"
+            }
+          ],
+          "measurement": "positive",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "status"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "status",
+              "operator": "=",
+              "value": "healed"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Confronto positivi/guariti(BUTTARE)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:934",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:935",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 26
       },
       "id": 23,
-      "panels": [
-        {
-          "datasource": "InfluxDB",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {
-                "align": "center"
-              },
-              "decimals": 10,
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 19,
-            "x": 0,
-            "y": 21
-          },
-          "id": 8,
-          "options": {
-            "showHeader": true
-          },
-          "pluginVersion": "7.0.6",
-          "targets": [
-            {
-              "groupBy": [],
-              "measurement": "contact",
-              "orderByTime": "DESC",
-              "policy": "autogen",
-              "refId": "A",
-              "resultFormat": "table",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "user_1"
-                    ],
-                    "type": "field"
-                  }
-                ],
-                [
-                  {
-                    "params": [
-                      "user_2"
-                    ],
-                    "type": "field"
-                  }
-                ],
-                [
-                  {
-                    "params": [
-                      "city"
-                    ],
-                    "type": "field"
-                  }
-                ],
-                [
-                  {
-                    "params": [
-                      "latitude"
-                    ],
-                    "type": "field"
-                  }
-                ],
-                [
-                  {
-                    "params": [
-                      "longitude"
-                    ],
-                    "type": "field"
-                  }
-                ],
-                [
-                  {
-                    "params": [
-                      "timestamp"
-                    ],
-                    "type": "field"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "region",
-                  "operator": "=~",
-                  "value": "/^$Regione$/"
-                }
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Lista contatti",
-          "type": "table"
-        },
-        {
-          "datasource": "InfluxDB",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {
-                "align": "center"
-              },
-              "decimals": 10,
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 5,
-            "x": 19,
-            "y": 21
-          },
-          "id": 16,
-          "options": {
-            "showHeader": true
-          },
-          "pluginVersion": "7.0.6",
-          "targets": [
-            {
-              "groupBy": [],
-              "measurement": "positive",
-              "orderByTime": "DESC",
-              "policy": "autogen",
-              "refId": "A",
-              "resultFormat": "table",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "user_id"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "distinct"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "region",
-                  "operator": "=~",
-                  "value": "/^$Regione$/"
-                }
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Lista positivi",
-          "type": "table"
-        }
-      ],
+      "panels": [],
       "repeat": null,
       "title": "Tabelle",
       "type": "row"
+    },
+    {
+      "datasource": "InfluxDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "center"
+          },
+          "decimals": 10,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 22,
+        "x": 0,
+        "y": 27
+      },
+      "id": 8,
+      "options": {
+        "showHeader": true
+      },
+      "pluginVersion": "7.0.6",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "contact",
+          "orderByTime": "DESC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "user_1"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "user_2"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "city"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "latitude"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "longitude"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "timestamp"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "region",
+              "operator": "=~",
+              "value": "/^$Regione$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Lista contatti",
+      "type": "table"
+    },
+    {
+      "datasource": "InfluxDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "center"
+          },
+          "decimals": 10,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 11,
+        "x": 0,
+        "y": 41
+      },
+      "id": 16,
+      "options": {
+        "showHeader": true
+      },
+      "pluginVersion": "7.0.6",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "user_id"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "positive",
+          "orderByTime": "DESC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "user_id"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "status"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "region",
+              "operator": "=~",
+              "value": "/^$Regione$/"
+            },
+            {
+              "condition": "AND",
+              "key": "status",
+              "operator": "=",
+              "value": "positive"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Lista positivi",
+      "type": "table"
+    },
+    {
+      "datasource": "InfluxDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "center"
+          },
+          "decimals": 10,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 11,
+        "x": 11,
+        "y": 41
+      },
+      "id": 26,
+      "options": {
+        "showHeader": true
+      },
+      "pluginVersion": "7.0.6",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "user_id"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "positive",
+          "orderByTime": "DESC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "user_id"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "status"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "region",
+              "operator": "=~",
+              "value": "/^$Regione$/"
+            },
+            {
+              "condition": "AND",
+              "key": "status",
+              "operator": "=",
+              "value": "healed"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Lista guariti",
+      "type": "table"
     }
   ],
-  "refresh": "5s",
+  "refresh": false,
   "schemaVersion": 25,
   "style": "dark",
   "tags": [],
@@ -780,8 +1285,8 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "Sicilia",
-          "value": "Sicilia"
+          "text": "Toscana",
+          "value": "Toscana"
         },
         "hide": 0,
         "includeAll": false,
@@ -790,7 +1295,7 @@
         "name": "Regione",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "Sicilia",
             "value": "Sicilia"
           },
@@ -800,7 +1305,7 @@
             "value": "Lombardia"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "Toscana",
             "value": "Toscana"
           }
@@ -813,7 +1318,7 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {

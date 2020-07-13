@@ -18,20 +18,21 @@ def read_json_file(x):
 def map_save_influx(x):
     data = json.loads(x[1])
 
-    for user in data["positive_users"]:
+    for user in data["healed_users"]:
         json_body = [
             {
                 "measurement": "positive",
                 "tags": {
                     "user_id": user['id'],
                     "country": user['country'],
-                    "region": user['region']
+                    "region": user['region'],
+                    "status": 'healed'
                 },
                 "fields": {
                     "user_id": user['id'],
                     "country": user['country'],
                     "region": user['region'],
-                    "status": 'positive'
+                    "status": 'healed'
                 }
             }
         ]
@@ -44,7 +45,7 @@ if __name__ == "__main__":
     sc.setLogLevel("ERROR")
     ssc = StreamingContext(sc, 10)
 
-    kvs = KafkaUtils.createDirectStream(ssc, ["positive"], {"metadata.broker.list": "kafka:9092"})
+    kvs = KafkaUtils.createDirectStream(ssc, ["healed"], {"metadata.broker.list": "kafka:9092"})
 
     client = InfluxDBClient(host='influx', port=8086)
     client.switch_database('covid')

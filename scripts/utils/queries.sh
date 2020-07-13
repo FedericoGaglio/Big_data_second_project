@@ -25,4 +25,3 @@ echo 'STAMPO TUTTA LA TABELLA'
 
 #curl -POST 'http://localhost:8086/query?pretty=true' --data-urlencode "db=covid" --data-urlencode "q=CREATE CONTINUOUS QUERY cq ON covid RESAMPLE EVERY 5s BEGIN SELECT count(*) INTO count_sicilia FROM CovidInfo WHERE region = 'Sicilia' GROUP BY time(1m) END"
 #curl -G 'http://localhost:8086/query?pretty=true' --data-urlencode "db=covid" --data-urlencode "q=SELECT user_1,timestamp,latitude,longitude FROM covid.autogen.contact"
-curl -G 'http://localhost:8086/query?pretty=true' --data-urlencode "db=covid" --data-urlencode "q=SELECT sample(user_1, 3), country, region FROM covid.autogen.contact"
