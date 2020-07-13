@@ -15,7 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1594652912962,
+  "id": 1,
+  "iteration": 1594655239238,
   "links": [],
   "panels": [
     {
@@ -27,9 +28,9 @@
         "x": 0,
         "y": 0
       },
-      "id": 25,
+      "id": 29,
       "panels": [],
-      "title": "Grafici",
+      "title": "Contagi",
       "type": "row"
     },
     {
@@ -42,12 +43,8 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "green",
-                "value": null
-              },
-              {
                 "color": "red",
-                "value": 80
+                "value": null
               }
             ]
           }
@@ -55,12 +52,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
-        "w": 4,
+        "h": 4,
+        "w": 8,
         "x": 0,
         "y": 1
       },
-      "id": 10,
+      "id": 32,
       "options": {
         "colorMode": "background",
         "graphMode": "none",
@@ -74,7 +71,7 @@
           "values": false
         }
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.0.4",
       "targets": [
         {
           "alias": "$Regione",
@@ -86,7 +83,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "contact",
+          "measurement": "positive",
           "orderByTime": "ASC",
           "policy": "autogen",
           "refId": "A",
@@ -95,7 +92,133 @@
             [
               {
                 "params": [
-                  "timestamp"
+                  "user_id"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "region",
+              "operator": "=~",
+              "value": "/^$Regione$/"
+            },
+            {
+              "condition": "AND",
+              "key": "status",
+              "operator": "=",
+              "value": "positive"
+            }
+          ]
+        },
+        {
+          "alias": "Italia",
+          "groupBy": [
+            {
+              "params": [
+                "/^$Regione$/"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "positive",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "user_id"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "status",
+              "operator": "=",
+              "value": "healed"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Attualmente positivi",
+      "type": "stat"
+    },
+    {
+      "datasource": "InfluxDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "orange",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "id": 30,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        }
+      },
+      "pluginVersion": "7.0.4",
+      "targets": [
+        {
+          "alias": "$Regione",
+          "groupBy": [
+            {
+              "params": [
+                "/^$Regione$/"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "positive",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "user_id"
                 ],
                 "type": "field"
               },
@@ -114,16 +237,16 @@
           ]
         },
         {
-          "alias": "Italia",
+          "alias": "$Regione",
           "groupBy": [
             {
               "params": [
-                "country"
+                "/^$Regione$/"
               ],
               "type": "tag"
             }
           ],
-          "measurement": "contact",
+          "measurement": "positive",
           "orderByTime": "ASC",
           "policy": "autogen",
           "refId": "B",
@@ -132,7 +255,7 @@
             [
               {
                 "params": [
-                  "timestamp"
+                  "user_id"
                 ],
                 "type": "field"
               },
@@ -147,7 +270,133 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Contatti regione",
+      "title": "Totale contagi",
+      "type": "stat"
+    },
+    {
+      "datasource": "InfluxDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 31,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        }
+      },
+      "pluginVersion": "7.0.4",
+      "targets": [
+        {
+          "alias": "$Regione",
+          "groupBy": [
+            {
+              "params": [
+                "/^$Regione$/"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "positive",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "user_id"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "region",
+              "operator": "=~",
+              "value": "/^$Regione$/"
+            },
+            {
+              "condition": "AND",
+              "key": "status",
+              "operator": "=",
+              "value": "healed"
+            }
+          ]
+        },
+        {
+          "alias": "Italia",
+          "groupBy": [
+            {
+              "params": [
+                "/^$Regione$/"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "positive",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "user_id"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "status",
+              "operator": "=",
+              "value": "healed"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Guariti",
       "type": "stat"
     },
     {
@@ -156,6 +405,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "InfluxDB",
+      "decimals": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -180,22 +430,23 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 6,
-        "w": 20,
-        "x": 4,
-        "y": 1
+        "w": 24,
+        "x": 0,
+        "y": 5
       },
       "hiddenSeries": false,
-      "id": 12,
+      "id": 27,
       "legend": {
-        "alignAsTable": false,
-        "avg": false,
+        "alignAsTable": true,
+        "avg": true,
         "current": false,
+        "hideEmpty": false,
         "max": false,
         "min": false,
-        "rightSide": false,
+        "rightSide": true,
         "show": true,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": true,
       "linewidth": 3,
@@ -214,16 +465,16 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "$Regione",
+          "alias": "Positivi",
           "groupBy": [
             {
               "params": [
-                "$__interval"
+                "$Campionamento"
               ],
               "type": "time"
             }
           ],
-          "measurement": "contact",
+          "measurement": "positive",
           "orderByTime": "ASC",
           "policy": "autogen",
           "refId": "A",
@@ -232,7 +483,7 @@
             [
               {
                 "params": [
-                  "timestamp"
+                  "user_id"
                 ],
                 "type": "field"
               },
@@ -247,20 +498,26 @@
               "key": "region",
               "operator": "=~",
               "value": "/^$Regione$/"
+            },
+            {
+              "condition": "AND",
+              "key": "status",
+              "operator": "=",
+              "value": "positive"
             }
           ]
         },
         {
-          "alias": "Italia",
+          "alias": "Guariti",
           "groupBy": [
             {
               "params": [
-                "$__interval"
+                "$Campionamento"
               ],
               "type": "time"
             }
           ],
-          "measurement": "contact",
+          "measurement": "positive",
           "orderByTime": "ASC",
           "policy": "autogen",
           "refId": "B",
@@ -269,7 +526,7 @@
             [
               {
                 "params": [
-                  "timestamp"
+                  "user_id"
                 ],
                 "type": "field"
               },
@@ -279,14 +536,26 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "region",
+              "operator": "=~",
+              "value": "/^$Regione$/"
+            },
+            {
+              "condition": "AND",
+              "key": "status",
+              "operator": "=",
+              "value": "healed"
+            }
+          ]
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Contatti",
+      "title": "Andamento contagi",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -302,7 +571,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:934",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -311,7 +579,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:935",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -343,15 +610,16 @@
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "none"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
+        "h": 4,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 11
       },
       "id": 21,
       "options": {
@@ -366,7 +634,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.0.4",
       "targets": [
         {
           "alias": "Positivi",
@@ -457,8 +725,136 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Confronto contagi",
+      "title": "Confronto positivi guariti",
       "type": "bargauge"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 25,
+      "panels": [],
+      "title": "Contatti",
+      "type": "row"
+    },
+    {
+      "datasource": "InfluxDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 7,
+        "x": 0,
+        "y": 16
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        }
+      },
+      "pluginVersion": "7.0.4",
+      "targets": [
+        {
+          "alias": "$Regione",
+          "groupBy": [
+            {
+              "params": [
+                "/^$Regione$/"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "contact",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "timestamp"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "region",
+              "operator": "=~",
+              "value": "/^$Regione$/"
+            }
+          ]
+        },
+        {
+          "alias": "Italia",
+          "groupBy": [
+            {
+              "params": [
+                "country"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "contact",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "timestamp"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Contatti",
+      "type": "stat"
     },
     {
       "aliasColors": {},
@@ -489,20 +885,20 @@
       "fill": 3,
       "fillGradient": 0,
       "gridPos": {
-        "h": 6,
+        "h": 7,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 20
       },
       "hiddenSeries": false,
-      "id": 27,
+      "id": 12,
       "legend": {
-        "alignAsTable": false,
+        "alignAsTable": true,
         "avg": false,
         "current": false,
         "max": false,
         "min": false,
-        "rightSide": false,
+        "rightSide": true,
         "show": true,
         "total": false,
         "values": false
@@ -528,12 +924,12 @@
           "groupBy": [
             {
               "params": [
-                "$__interval"
+                "$Campionamento"
               ],
               "type": "time"
             }
           ],
-          "measurement": "positive",
+          "measurement": "contact",
           "orderByTime": "ASC",
           "policy": "autogen",
           "refId": "A",
@@ -542,7 +938,7 @@
             [
               {
                 "params": [
-                  "user_id"
+                  "timestamp"
                 ],
                 "type": "field"
               },
@@ -557,26 +953,20 @@
               "key": "region",
               "operator": "=~",
               "value": "/^$Regione$/"
-            },
-            {
-              "condition": "AND",
-              "key": "status",
-              "operator": "=",
-              "value": "positive"
             }
           ]
         },
         {
-          "alias": "$Regione",
+          "alias": "Italia",
           "groupBy": [
             {
               "params": [
-                "$__interval"
+                "$Campionamento"
               ],
               "type": "time"
             }
           ],
-          "measurement": "positive",
+          "measurement": "contact",
           "orderByTime": "ASC",
           "policy": "autogen",
           "refId": "B",
@@ -585,7 +975,7 @@
             [
               {
                 "params": [
-                  "user_id"
+                  "timestamp"
                 ],
                 "type": "field"
               },
@@ -595,26 +985,14 @@
               }
             ]
           ],
-          "tags": [
-            {
-              "key": "region",
-              "operator": "=~",
-              "value": "/^$Regione$/"
-            },
-            {
-              "condition": "AND",
-              "key": "status",
-              "operator": "=",
-              "value": "healed"
-            }
-          ]
+          "tags": []
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Confronto positivi/guariti",
+      "title": "Contatti",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -630,7 +1008,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:934",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -639,7 +1016,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:935",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -660,12 +1036,12 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 20
+        "y": 27
       },
       "id": 23,
       "panels": [],
       "repeat": null,
-      "title": "Tabelle",
+      "title": "Dati raw",
       "type": "row"
     },
     {
@@ -691,19 +1067,33 @@
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "longitude"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": null
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
-        "h": 14,
+        "h": 7,
         "w": 22,
         "x": 0,
-        "y": 21
+        "y": 28
       },
       "id": 8,
       "options": {
-        "showHeader": true
+        "showHeader": true,
+        "sortBy": []
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.0.4",
       "targets": [
         {
           "groupBy": [],
@@ -777,6 +1167,28 @@
       "type": "table"
     },
     {
+      "content": "\n# Title\n\nFor markdown syntax help: [commonmark.org/help](https://commonmark.org/help/)\n\n\n\n",
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 22,
+        "x": 0,
+        "y": 35
+      },
+      "id": 34,
+      "mode": "markdown",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Contagi",
+      "type": "text"
+    },
+    {
       "datasource": "InfluxDB",
       "fieldConfig": {
         "defaults": {
@@ -805,13 +1217,13 @@
         "h": 7,
         "w": 11,
         "x": 0,
-        "y": 35
+        "y": 36
       },
       "id": 16,
       "options": {
         "showHeader": true
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.0.4",
       "targets": [
         {
           "groupBy": [
@@ -874,20 +1286,17 @@
       "fieldConfig": {
         "defaults": {
           "custom": {
-            "align": "center"
+            "align": "center",
+            "displayMode": "auto"
           },
           "decimals": 10,
           "mappings": [],
           "thresholds": {
-            "mode": "absolute",
+            "mode": "percentage",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           }
@@ -898,13 +1307,13 @@
         "h": 7,
         "w": 11,
         "x": 11,
-        "y": 35
+        "y": 36
       },
       "id": 26,
       "options": {
         "showHeader": true
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.0.4",
       "targets": [
         {
           "groupBy": [
@@ -963,7 +1372,7 @@
       "type": "table"
     }
   ],
-  "refresh": false,
+  "refresh": "5s",
   "schemaVersion": 25,
   "style": "dark",
   "tags": [],
@@ -973,8 +1382,8 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "Toscana",
-          "value": "Toscana"
+          "text": "Sicilia",
+          "value": "Sicilia"
         },
         "hide": 0,
         "includeAll": false,
@@ -983,7 +1392,7 @@
         "name": "Regione",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "Sicilia",
             "value": "Sicilia"
           },
@@ -993,7 +1402,7 @@
             "value": "Lombardia"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "Toscana",
             "value": "Toscana"
           }
@@ -1002,12 +1411,52 @@
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
+      },
+      {
+        "auto": false,
+        "auto_count": 30,
+        "auto_min": "10s",
+        "current": {
+          "selected": false,
+          "text": "20s",
+          "value": "20s"
+        },
+        "hide": 0,
+        "label": null,
+        "name": "Campionamento",
+        "options": [
+          {
+            "selected": false,
+            "text": "10s",
+            "value": "10s"
+          },
+          {
+            "selected": true,
+            "text": "20s",
+            "value": "20s"
+          },
+          {
+            "selected": false,
+            "text": "30s",
+            "value": "30s"
+          },
+          {
+            "selected": false,
+            "text": "40s",
+            "value": "40s"
+          }
+        ],
+        "query": "10s, 20s, 30s, 40s",
+        "queryValue": "",
+        "refresh": 2,
+        "skipUrlSync": false,
+        "type": "interval"
       }
     ]
   },
   "time": {
-    "from": "2020-07-13T14:43:54.403Z",
-    "to": "2020-07-13T15:13:54.403Z"
+    "from": "now-1h",
+    "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -1025,5 +1474,5 @@
   "timezone": "",
   "title": "covid-dashboard",
   "uid": "covid",
-  "version": 1
+  "version": 3
 }
