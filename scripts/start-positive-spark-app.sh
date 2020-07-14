@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo -e '\n\n\n################# START SPARK POSITIVE APP #################\n\n\n' &&
+echo -e '\n\n\n################# START POSITIVE SPARK APP #################\n\n\n' &&
 
 PYTHON_FILE='positive-spark-app.py'
 

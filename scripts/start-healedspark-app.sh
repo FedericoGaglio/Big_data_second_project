@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo -e '\n\n\n################# START SPARK HEALED APP #################\n\n\n' &&
+echo -e '\n\n\n################# START HEALED SPARK APP #################\n\n\n' &&
 
 PYTHON_FILE='healed-spark-app.py'
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo -e '\n\n\n################# START SPARK CONTACT APP #################\n\n\n' &&
+echo -e '\n\n\n################# START CONTACT SPARK APP #################\n\n\n' &&
 
 PYTHON_FILE='contact-spark-app.py'
 

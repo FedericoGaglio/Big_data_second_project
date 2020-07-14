@@ -44,7 +44,7 @@ services:
   lombardia-producer:
     build: 
       context: producers/contact-producer
-    container_name: producer-lombardia
+    container_name: lombardia-producer
     depends_on:
       - "kafka"
     environment:
@@ -53,7 +53,7 @@ services:
   sicilia-producer:
     build:
       context: producers/contact-producer
-    container_name: producer-sicilia
+    container_name: sicilia-producer
     depends_on:
       - "kafka"
     environment:
@@ -62,7 +62,7 @@ services:
   toscana-producer:
     build:
       context: producers/contact-producer
-    container_name: producer-toscana
+    container_name: tocana-producer
     depends_on:
       - "kafka"
     environment:
