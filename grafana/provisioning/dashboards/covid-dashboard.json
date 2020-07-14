@@ -15,8 +15,18 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1594656255506,
-  "links": [],
+  "iteration": 1594714783050,
+  "links": [
+    {
+      "$$hashKey": "object:58",
+      "icon": "dashboard",
+      "tags": [],
+      "targetBlank": true,
+      "title": "confronto-regioni",
+      "type": "link",
+      "url": "http://localhost:3000/d/covid/covid-dashboard?"
+    }
+  ],
   "panels": [
     {
       "collapsed": false,
@@ -71,7 +81,7 @@
           "values": false
         }
       },
-      "pluginVersion": "7.0.4",
+      "pluginVersion": "7.0.6",
       "targets": [
         {
           "alias": "$Regione",
@@ -197,7 +207,7 @@
           "values": false
         }
       },
-      "pluginVersion": "7.0.4",
+      "pluginVersion": "7.0.6",
       "targets": [
         {
           "alias": "$Regione",
@@ -311,7 +321,7 @@
           "values": false
         }
       },
-      "pluginVersion": "7.0.4",
+      "pluginVersion": "7.0.6",
       "targets": [
         {
           "alias": "$Regione",
@@ -636,7 +646,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "7.0.4",
+      "pluginVersion": "7.0.6",
       "targets": [
         {
           "alias": "Positivi",
@@ -782,7 +792,7 @@
           "values": false
         }
       },
-      "pluginVersion": "7.0.4",
+      "pluginVersion": "7.0.6",
       "targets": [
         {
           "alias": "$Regione",
@@ -1095,7 +1105,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "7.0.4",
+      "pluginVersion": "7.0.6",
       "targets": [
         {
           "groupBy": [],
@@ -1225,7 +1235,7 @@
       "options": {
         "showHeader": true
       },
-      "pluginVersion": "7.0.4",
+      "pluginVersion": "7.0.6",
       "targets": [
         {
           "groupBy": [
@@ -1315,7 +1325,7 @@
       "options": {
         "showHeader": true
       },
-      "pluginVersion": "7.0.4",
+      "pluginVersion": "7.0.6",
       "targets": [
         {
           "groupBy": [
@@ -1384,8 +1394,8 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "Lombardia",
-          "value": "Lombardia"
+          "text": "Sicilia",
+          "value": "Sicilia"
         },
         "hide": 0,
         "includeAll": false,
@@ -1394,12 +1404,12 @@
         "name": "Regione",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "Sicilia",
             "value": "Sicilia"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "Lombardia",
             "value": "Lombardia"
           },
@@ -1476,5 +1486,5 @@
   "timezone": "",
   "title": "covid-dashboard",
   "uid": "covid",
-  "version": 4
+  "version": 1
 }
