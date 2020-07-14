@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1594720516370,
+  "iteration": 1594721065542,
   "links": [
     {
       "$$hashKey": "object:56",
@@ -1054,6 +1054,28 @@
       "type": "row"
     },
     {
+      "content": "\n# Title\n\nFor markdown syntax help: [commonmark.org/help](https://commonmark.org/help/)\n\n\n\n",
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 23
+      },
+      "id": 36,
+      "mode": "markdown",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Contagi",
+      "type": "text"
+    },
+    {
       "datasource": "InfluxDB",
       "fieldConfig": {
         "defaults": {
@@ -1093,9 +1115,9 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 22,
+        "w": 24,
         "x": 0,
-        "y": 23
+        "y": 24
       },
       "id": 8,
       "options": {
@@ -1151,14 +1173,6 @@
                 ],
                 "type": "field"
               }
-            ],
-            [
-              {
-                "params": [
-                  "timestamp"
-                ],
-                "type": "field"
-              }
             ]
           ],
           "tags": [
@@ -1173,6 +1187,24 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Lista contatti",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": false
+            },
+            "indexByName": {},
+            "renameByName": {
+              "city": "Città",
+              "latitude": "Latitudine",
+              "longitude": "Longitudine",
+              "user_1": "User 1",
+              "user_2": "User 2"
+            }
+          }
+        }
+      ],
       "type": "table"
     },
     {
@@ -1186,9 +1218,9 @@
       },
       "gridPos": {
         "h": 1,
-        "w": 22,
+        "w": 24,
         "x": 0,
-        "y": 30
+        "y": 31
       },
       "id": 34,
       "mode": "markdown",
@@ -1223,14 +1255,20 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
+        "h": 6,
         "w": 11,
         "x": 0,
-        "y": 31
+        "y": 32
       },
       "id": 16,
       "options": {
-        "showHeader": true
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "user_id"
+          }
+        ]
       },
       "pluginVersion": "7.0.4",
       "targets": [
@@ -1288,6 +1326,21 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Lista positivi",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "last": true,
+              "user_id": false
+            },
+            "indexByName": {},
+            "renameByName": {
+              "user_id": "Utente"
+            }
+          }
+        }
+      ],
       "type": "table"
     },
     {
@@ -1313,10 +1366,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
-        "w": 11,
-        "x": 11,
-        "y": 31
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 32
       },
       "id": 26,
       "options": {
@@ -1378,7 +1431,43 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Lista guariti",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "last": true
+            },
+            "indexByName": {},
+            "renameByName": {
+              "user_id": "Utente"
+            }
+          }
+        }
+      ],
       "type": "table"
+    },
+    {
+      "content": "\n# Title\n\nFor markdown syntax help: [commonmark.org/help](https://commonmark.org/help/)\n\n\n\n",
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 38
+      },
+      "id": 35,
+      "mode": "markdown",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Contagi",
+      "type": "text"
     }
   ],
   "refresh": "5s",
@@ -1427,20 +1516,20 @@
         "auto_min": "10s",
         "current": {
           "selected": false,
-          "text": "10s",
-          "value": "10s"
+          "text": "20s",
+          "value": "20s"
         },
         "hide": 0,
         "label": null,
         "name": "Campionamento",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "10s",
             "value": "10s"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "20s",
             "value": "20s"
           },
