@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1594719812559,
+  "iteration": 1594720222257,
   "links": [
     {
       "$$hashKey": "object:45",
@@ -26,7 +26,7 @@
       "title": "Confronto tra regioni",
       "tooltip": "",
       "type": "link",
-      "url": "http://localhost:3000/d/covid/confronto-regione"
+      "url": "http://localhost:3000/d/h7unWD7Mz/confronto-regioni"
     }
   ],
   "panels": [
@@ -1486,5 +1486,5 @@
   "timezone": "",
   "title": "covid-dashboard",
   "uid": "covid",
-  "version": 2
+  "version": 1
 }
