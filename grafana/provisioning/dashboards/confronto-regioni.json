@@ -15,7 +15,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": null,
   "links": [
     {
       "icon": "dashboard",
@@ -65,7 +64,7 @@
       "strokeWidth": 1,
       "targets": [
         {
-          "alias": "Guariti regione Sicilia",
+          "alias": "Sicilia",
           "groupBy": [
             {
               "params": [
@@ -108,7 +107,7 @@
           ]
         },
         {
-          "alias": "Guariti regione Toscana",
+          "alias": "Toscana",
           "groupBy": [
             {
               "params": [
@@ -151,7 +150,7 @@
           ]
         },
         {
-          "alias": "Guariti regione Lombardia",
+          "alias": "Lombardia",
           "groupBy": [
             {
               "params": [
@@ -238,7 +237,7 @@
       "strokeWidth": 1,
       "targets": [
         {
-          "alias": "Contatti regione Sicilia",
+          "alias": "Sicilia",
           "groupBy": [
             {
               "params": [
@@ -275,7 +274,7 @@
           ]
         },
         {
-          "alias": "Contatti regione Lombardia",
+          "alias": "Lombardia",
           "groupBy": [
             {
               "params": [
@@ -312,7 +311,7 @@
           ]
         },
         {
-          "alias": "Contatti regione Toscana",
+          "alias": "Toscana",
           "groupBy": [
             {
               "params": [
@@ -393,7 +392,7 @@
       "strokeWidth": 1,
       "targets": [
         {
-          "alias": "Positivi regione Sicilia",
+          "alias": "Sicilia",
           "groupBy": [
             {
               "params": [
@@ -436,7 +435,7 @@
           ]
         },
         {
-          "alias": "Positivi regione Toscana",
+          "alias": "Toscana",
           "groupBy": [
             {
               "params": [
@@ -479,7 +478,7 @@
           ]
         },
         {
-          "alias": "Positivi regione Lombardia",
+          "alias": "Lombardia",
           "groupBy": [
             {
               "params": [
@@ -541,12 +540,8 @@
             "mode": "percentage",
             "steps": [
               {
-                "color": "green",
-                "value": null
-              },
-              {
                 "color": "red",
-                "value": 80
+                "value": null
               }
             ]
           },
@@ -580,7 +575,7 @@
       "pluginVersion": "7.0.6",
       "targets": [
         {
-          "alias": "Andamento positivi regione Lombardia",
+          "alias": "Lombardia",
           "groupBy": [
             {
               "params": [
@@ -623,7 +618,7 @@
           ]
         },
         {
-          "alias": "Andamento positivi regione Sicilia",
+          "alias": "Sicilia",
           "groupBy": [
             {
               "params": [
@@ -666,7 +661,7 @@
           ]
         },
         {
-          "alias": "Andamento positivi regione Toscana",
+          "alias": "Toscana",
           "groupBy": [
             {
               "params": [
@@ -758,7 +753,7 @@
       "pluginVersion": "7.0.6",
       "targets": [
         {
-          "alias": "Guariti Lombardia",
+          "alias": "Lombardia",
           "groupBy": [
             {
               "params": [
@@ -807,7 +802,7 @@
           ]
         },
         {
-          "alias": "Guariti Sicilia",
+          "alias": "Sicilia",
           "groupBy": [
             {
               "params": [
@@ -856,7 +851,7 @@
           ]
         },
         {
-          "alias": "Guariti Toscana",
+          "alias": "Toscana",
           "groupBy": [
             {
               "params": [
@@ -954,7 +949,7 @@
       "pluginVersion": "7.0.6",
       "targets": [
         {
-          "alias": "Contatti regione Lombardia",
+          "alias": "Lombardia",
           "groupBy": [
             {
               "params": [
@@ -991,7 +986,7 @@
           ]
         },
         {
-          "alias": "Contatti regione Sicilia",
+          "alias": "Sicilia",
           "groupBy": [
             {
               "params": [
@@ -1028,7 +1023,7 @@
           ]
         },
         {
-          "alias": "Contatti regione Toscana",
+          "alias": "Toscana",
           "groupBy": [
             {
               "params": [
@@ -1096,7 +1091,7 @@
     ]
   },
   "timezone": "",
-  "title": "New dashboard",
-  "uid": null,
-  "version": 0
+  "title": "Confronto regioni",
+  "uid": "h7unWD7Mz",
+  "version": 1
 }
