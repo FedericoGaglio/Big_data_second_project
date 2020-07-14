@@ -15,18 +15,15 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1594720222257,
+  "iteration": 1594720516370,
   "links": [
     {
-      "$$hashKey": "object:45",
-      "icon": "dashboard",
-      "keepTime": false,
+      "$$hashKey": "object:56",
+      "asDropdown": true,
+      "icon": "external link",
       "tags": [],
-      "targetBlank": false,
-      "title": "Confronto tra regioni",
-      "tooltip": "",
-      "type": "link",
-      "url": "http://localhost:3000/d/h7unWD7Mz/confronto-regioni"
+      "title": "Menu",
+      "type": "dashboards"
     }
   ],
   "panels": [
@@ -1484,7 +1481,7 @@
     ]
   },
   "timezone": "",
-  "title": "covid-dashboard",
+  "title": "Home",
   "uid": "covid",
   "version": 1
 }
