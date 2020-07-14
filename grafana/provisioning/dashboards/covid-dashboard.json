@@ -15,16 +15,18 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1594714783050,
+  "iteration": 1594719812559,
   "links": [
     {
-      "$$hashKey": "object:58",
+      "$$hashKey": "object:45",
       "icon": "dashboard",
+      "keepTime": false,
       "tags": [],
-      "targetBlank": true,
-      "title": "confronto-regioni",
+      "targetBlank": false,
+      "title": "Confronto tra regioni",
+      "tooltip": "",
       "type": "link",
-      "url": "http://localhost:3000/d/covid/covid-dashboard?"
+      "url": "http://localhost:3000/d/covid/confronto-regione"
     }
   ],
   "panels": [
@@ -78,10 +80,10 @@
             "sum"
           ],
           "fields": "",
-          "values": false
+          "values": true
         }
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.0.4",
       "targets": [
         {
           "alias": "$Regione",
@@ -131,7 +133,7 @@
           "groupBy": [
             {
               "params": [
-                "/^$Regione$/"
+                "country"
               ],
               "type": "tag"
             }
@@ -159,7 +161,7 @@
             {
               "key": "status",
               "operator": "=",
-              "value": "healed"
+              "value": "positive"
             }
           ]
         }
@@ -207,7 +209,7 @@
           "values": false
         }
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.0.4",
       "targets": [
         {
           "alias": "$Regione",
@@ -247,11 +249,11 @@
           ]
         },
         {
-          "alias": "$Regione",
+          "alias": "Italia",
           "groupBy": [
             {
               "params": [
-                "/^$Regione$/"
+                "country"
               ],
               "type": "tag"
             }
@@ -321,7 +323,7 @@
           "values": false
         }
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.0.4",
       "targets": [
         {
           "alias": "$Regione",
@@ -371,7 +373,7 @@
           "groupBy": [
             {
               "params": [
-                "/^$Regione$/"
+                "country"
               ],
               "type": "tag"
             }
@@ -581,7 +583,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:297",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -590,7 +591,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:298",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -646,7 +646,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.0.4",
       "targets": [
         {
           "alias": "Positivi",
@@ -792,7 +792,7 @@
           "values": false
         }
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.0.4",
       "targets": [
         {
           "alias": "$Regione",
@@ -897,10 +897,10 @@
       "fill": 3,
       "fillGradient": 0,
       "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 20
+        "h": 6,
+        "w": 17,
+        "x": 7,
+        "y": 16
       },
       "hiddenSeries": false,
       "id": 12,
@@ -1048,7 +1048,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 27
+        "y": 22
       },
       "id": 23,
       "panels": [],
@@ -1098,14 +1098,14 @@
         "h": 7,
         "w": 22,
         "x": 0,
-        "y": 28
+        "y": 23
       },
       "id": 8,
       "options": {
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.0.4",
       "targets": [
         {
           "groupBy": [],
@@ -1191,7 +1191,7 @@
         "h": 1,
         "w": 22,
         "x": 0,
-        "y": 35
+        "y": 30
       },
       "id": 34,
       "mode": "markdown",
@@ -1229,13 +1229,13 @@
         "h": 7,
         "w": 11,
         "x": 0,
-        "y": 36
+        "y": 31
       },
       "id": 16,
       "options": {
         "showHeader": true
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.0.4",
       "targets": [
         {
           "groupBy": [
@@ -1319,13 +1319,13 @@
         "h": 7,
         "w": 11,
         "x": 11,
-        "y": 36
+        "y": 31
       },
       "id": 26,
       "options": {
         "showHeader": true
       },
-      "pluginVersion": "7.0.6",
+      "pluginVersion": "7.0.4",
       "targets": [
         {
           "groupBy": [
@@ -1393,9 +1393,9 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
-          "text": "Sicilia",
-          "value": "Sicilia"
+          "selected": false,
+          "text": "Toscana",
+          "value": "Toscana"
         },
         "hide": 0,
         "includeAll": false,
@@ -1404,7 +1404,7 @@
         "name": "Regione",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "Sicilia",
             "value": "Sicilia"
           },
@@ -1414,7 +1414,7 @@
             "value": "Lombardia"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "Toscana",
             "value": "Toscana"
           }
@@ -1430,15 +1430,15 @@
         "auto_min": "10s",
         "current": {
           "selected": false,
-          "text": "40s",
-          "value": "40s"
+          "text": "10s",
+          "value": "10s"
         },
         "hide": 0,
         "label": null,
         "name": "Campionamento",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "10s",
             "value": "10s"
           },
@@ -1453,7 +1453,7 @@
             "value": "30s"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "40s",
             "value": "40s"
           }
@@ -1467,7 +1467,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {
@@ -1486,5 +1486,5 @@
   "timezone": "",
   "title": "covid-dashboard",
   "uid": "covid",
-  "version": 1
+  "version": 2
 }
