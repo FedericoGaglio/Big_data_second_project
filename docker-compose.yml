@@ -41,7 +41,7 @@ services:
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
 
-  producer-lombardia:
+  lombardia-producer:
     build: 
       context: producers/contact-producer
     container_name: producer-lombardia
@@ -50,7 +50,7 @@ services:
     environment:
       - REGION=lombardia
 
-  producer-sicilia:
+  sicilia-producer:
     build:
       context: producers/contact-producer
     container_name: producer-sicilia
@@ -59,7 +59,7 @@ services:
     environment:
       - REGION=sicilia
 
-  producer-toscana:
+  toscana-producer:
     build:
       context: producers/contact-producer
     container_name: producer-toscana
@@ -68,7 +68,7 @@ services:
     environment:
       - REGION=toscana
 
-  producer-positive:
+  positive-producer:
     build:
       context: producers/positive-producer
     container_name: producer-positive
@@ -76,7 +76,7 @@ services:
       - "kafka"
       - "influx"
 
-  producer-healed:
+  healed-producer:
     build:
       context: producers/healed-producer
     container_name: producer-healed

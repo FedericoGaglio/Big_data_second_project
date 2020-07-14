@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-echo -e '\n\n\n################# START SPARK CONTACT APP #################\n\n\n' &&
+echo -e '\n\n\n################# START SPARK POSITIVE APP #################\n\n\n' &&
 
-PYTHON_FILE='spark-app.py'
+PYTHON_FILE='positive-spark-app.py'
 
 docker cp ../spark-app/$PYTHON_FILE spark-master:/$PYTHON_FILE
 docker exec -it spark-master pip install influxdb

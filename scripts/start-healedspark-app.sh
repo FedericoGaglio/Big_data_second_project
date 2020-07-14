@@ -2,7 +2,7 @@
 
 echo -e '\n\n\n################# START SPARK HEALED APP #################\n\n\n' &&
 
-PYTHON_FILE='spark-app-healed.py'
+PYTHON_FILE='healed-spark-app.py'
 
 docker cp ../spark-app/$PYTHON_FILE spark-master:/$PYTHON_FILE
 docker exec -it spark-master pip install influxdb
